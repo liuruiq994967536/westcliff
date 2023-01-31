@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Introducing California's Great Cliffs</title>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="utf-8">
+
+               <!-- Add icon library -->
+               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body id="contact" onLoad="disableButton(true)">
+        <div id="container"></div>
+    </body>
+    <header>
+        <div class="main-header">
+        <div class="logo">
+            <img src="images/logo.png" alt="Great Cliffs Logo" width="125">
+            <nav class="main-menu">
+                <ul>
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="activities.html">cliffs</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+    </header>
+    <section id="timeofday">
+        <span>Your Current Local Time:</span>
+        <span id="clock"></span>
+      </section>
+      <h1 class="contact-header">Contact Us</h1>
+      <p>
+          You can drop by the visitors information center at the cliff site that you plan on visiting. They are open 7 days a week from 8.00AM to 5.00PM. You can also contact
+          us directly if you need additional information about the Cliffs, Hours of Operations, Facilities or questions about this site using one of the following:
+          </p>
+          <div><span class="contact-adrees-text">Phone: </span><span>(800)GCLIFFS
+          </span></div>
+          <div><span class="contact-adrees-text">Email: </span><span>info@greatcliffs.com</span></div>
+          <fieldset >
+              <legend class="legend">Contact Form</legend>
+              <form >
+      
+                <label for="name">Name: </label>
+                <input type="text" id="name" name="name" placeholder="John Doe">
+                <br/>
+            
+               
+            
+               <span>How would you like us to contact you?</span>
+               <select name="contact" id="contact-way">
+                  <option value="select">Select</option>            
+                  <option value="phone">Phone </option>
+                  <option value="email">Email</option>
+                </select>
+               <br/>
+              
+               <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="johndoe@gmail.com">
+               <br/>
+       
+             
+               <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="XXX-XXX-XXX">
+               <br/>
+  
+               <label for="cars">Which cliff are you inquiring?</label>
+        <select name="cliffs" id="cliffs">
+          <option value="west-cliff">West Clif</option>
+          <option value="north-clif">North Cliff</option>
+          <option value="east-cliff">East Cliff</option>
+          <option value="south-cliff">south-cliff</option>
+        </select>
+        <br/>
+                <label for="subject">How did you here about us?</label><br/>
+                <textarea id="subject" name="about"style="height:200px"></textarea>
+                <br/>
+                <!--Random Codes-->
+        <div class="randomcode">
+            <input type="text" id="random-text"name="randomcode" placeholder="Enter characters">
+            <p id="codes"></p>
+            </div>
+                <button id="submit"class="submit-button"type="submit" value="Submit">Submit</button>
+              </form>
+      </fieldset>
+    <section> 
+        <ul id="partners">
+            <!-- <li class="partner">
+                <img src="partners/partner-bustour.png" alt="Partner Bus Tours">
+            </li>
+            <li class="partner">
+                <img src="partners/partner-cabinrental.png" alt="Parenter Cabin Rental">
+            </li>
+            <li class="partner">
+                <img src="partners/partner-campingadv.png" alt="Partner Camping Adventure">
+            </li>
+            <li class="partner">
+                <img src="partners/partner-collegetours.png" alt="Partner College Tours">
+            </li>
+            <li class="partner">
+                <img src="partners/partner-rentalbike.png" alt="Partner Bike Rental">
+            </li>
+            <li class="partner">
+                <img src="partners/partner-tourgroup.png" alt="Partner Tour Group">
+            </li> -->
+        </ul>
+    </section>
+    <footer>&copy; Copyright 2020 :: GreatCliffs.com
+            <div class="social">
+                <!-- Add font awesome icons -->
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-twitter"></a>
+            </div>
+    </footer>
+     <!--Digital clock  -->
+   <script type="text/javascript" src="js/digitalclock.js">
+</script>
+<!-- Partners -->
+<script src="js/site_scripts.js"></script>
+<script>
+    function generateCode (){
+        //Create variables to store generated codes and the type of characters we want to show as codes
+        var code = ''; //initialize to null value'
+        var getCode = ""; //to store entered code
+        var btnvalue; //for button boolean value
+        var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$';
+        for (i +1; i<=8;i++){
+            var char = Math.random()* str.length; //random select a character from the variable and then store in a new variable
+            code += str.charAt(char) //accumulate the generated character into a string of 8 characters
+            console.log(code)
+             //retun the final accumilated string when loop ends
+        }
+        return code;
+
+    }
+
+    //Get HTML element to display
+    document.getElementById("codes").innerHTML = generateCode();
+    //Disable Button
+    function disableButton(btnvalue) {
+        document.getElementById("submit") .disabled = btnvalue;
+        if (btnvalue == true) {
+              //test if button is disabled or enabled
+              //set button and label color translucent
+              document.getElementById("submit").style.backgroundColor =
+                "rgba(73, 119, 209, 0.3)";
+              document.getElementById("submit").style.color =
+                "rgba(255, 255, 255, 0.5)";
+            } else {
+              //set button and label color with no transparency
+              document.getElementById("submit").style.backgroundColor =
+                "rgba(73, 119, 209, 1)";
+              document.getElementById("submit").style.color =
+                "rgba(255, 255, 255, 1)";
+            }
+    }
+    var codebox = document.getElementById("random-text"); //get textbox
+    codebox.addEventListener("input", evaluateCode); //listen to code entered in textbox
+    function evaluateCode() {
+            getCode = document.getElementById("random-text").value; //get character entered
+            var charset1 = getCode.trim(); //remove any hidden characters entered code.trim();
+            var charset2 = getCode.trim(); //remove any hidden characters generated
+            console.log(charset1, charset2);
+            //test if code entered matches the number of generated characters
+            if (charset1.length == charset2.length && charset1 == charset2) {
+              disableButton(false); //if match, run the function to enable button
+            }
+          }
+disableButton()
+
+//Mange drop down inputs
+var contact = document.getElementById("contact-way");//Get the drop down element
+    var phone = document.getElementById("phone").style.display="none";//Set the phone input elemnt display to none by default
+        var email = document.getElementById("email").style.display="none";//Set the email input elemnt display to none by default
+    contact.addEventListener("input",checkInput,)//An event listner to listen to the change of input
+    function checkInput (){
+        var phone = document.getElementById("phone");//Get the phone input element
+        var email = document.getElementById("email");//Get the email input element
+        console.log(contact.value)
+      
+  if (contact.value=="phone"){//Check the selected option from the drop down
+    
+    function Phone(){phone.style.display="block";email.style.display="none"}//To run if the phone option is selected
+    Phone()
+  }else if (contact.value=="email"){
+    function Email(){email.style.display="block";phone.style.display="none"}//To run if the email option is selected
+    Email()
+  }else if (contact.value=="select"){
+    function None(){phone.style.display="none";email.style.display="none"}//To run if the none of the options is selected
+    None()
+  }
+
+    }
+</script>
+</html>
